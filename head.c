@@ -17,7 +17,7 @@ static void do_head(FILE *f, long nlines);
  * */
 static struct option longopts[] = {
     {"lines", required_argument, NULL, 'n'},
-    {"help",  no_argument,       NULL, 'h'},
+    {"help",  no_argument,       NULL, 'n'},
     {0, 0, 0, 0}
 };
 
@@ -34,7 +34,7 @@ main(int argc, char *argv[])
      * longopts では --help のときに 'h' を返すよう設定しているが、そういう文字をここで書く必要はない。
      * あくまで、解析したいショートオプションだけを記述する。
      * */
-    while ((opt = getopt_long(argc, argv, "n:", longopts, NULL)) != -1) {
+    while ((opt = getopt_long(argc, argv, "n", longopts, NULL)) != -1) {
         switch (opt) {
             /* -n オプションと --lines オプションを処理する。
              * オプションのパラメータは optarg に入っているので、これを処理して行数を得ておく。
